@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="6gb-Pc-TJA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauchScreenAppIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="eAT-jc-ba3">
+                                <rect key="frame" x="77.5" y="161" width="220" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="Azs-Nu-ZTC"/>
+                                    <constraint firstAttribute="width" constant="220" id="aAx-3z-fGF"/>
+                                    <constraint firstAttribute="width" secondItem="eAT-jc-ba3" secondAttribute="height" multiplier="1:1" id="bJ2-tf-1D0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ECommerce Test App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTu-Me-VbE">
+                                <rect key="frame" x="37.5" y="396" width="300" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="0.14232578873634338" green="0.33758026361465454" blue="0.51617413759231567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6gb-Pc-TJA" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="2bM-p7-iC6"/>
+                            <constraint firstItem="6gb-Pc-TJA" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="5zi-iL-5eX"/>
+                            <constraint firstAttribute="bottom" secondItem="6gb-Pc-TJA" secondAttribute="bottom" id="8jI-pN-Muh"/>
+                            <constraint firstItem="eAT-jc-ba3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="9wQ-jZ-a0X"/>
+                            <constraint firstAttribute="trailing" secondItem="6gb-Pc-TJA" secondAttribute="trailing" id="KZg-nc-Dc7"/>
+                            <constraint firstItem="oTu-Me-VbE" firstAttribute="top" secondItem="eAT-jc-ba3" secondAttribute="bottom" constant="15" id="MkL-Q3-2gA"/>
+                            <constraint firstItem="oTu-Me-VbE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lh2-Ab-WPP"/>
+                            <constraint firstItem="oTu-Me-VbE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="80.5" id="oR4-ox-X01"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-335.19999999999999" y="384.55772113943033"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Background" width="591.84002685546875" height="517"/>
+        <image name="LauchScreenAppIcon.png" width="881" height="881"/>
+    </resources>
+</document>
