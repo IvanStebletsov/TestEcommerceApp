@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauchScreenAppIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="eAT-jc-ba3">
-                                <rect key="frame" x="77.5" y="161" width="220" height="220"/>
+                                <rect key="frame" x="77.5" y="197" width="220" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="Azs-Nu-ZTC"/>
                                     <constraint firstAttribute="width" constant="220" id="aAx-3z-fGF"/>
@@ -30,7 +30,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ECommerce Test App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTu-Me-VbE">
-                                <rect key="frame" x="37.5" y="396" width="300" height="36"/>
+                                <rect key="frame" x="37.5" y="432" width="300" height="36"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" red="0.14232578873634338" green="0.33758026361465454" blue="0.51617413759231567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                             <constraint firstAttribute="trailing" secondItem="6gb-Pc-TJA" secondAttribute="trailing" id="KZg-nc-Dc7"/>
                             <constraint firstItem="oTu-Me-VbE" firstAttribute="top" secondItem="eAT-jc-ba3" secondAttribute="bottom" constant="15" id="MkL-Q3-2gA"/>
                             <constraint firstItem="oTu-Me-VbE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lh2-Ab-WPP"/>
-                            <constraint firstItem="oTu-Me-VbE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="80.5" id="oR4-ox-X01"/>
+                            <constraint firstItem="oTu-Me-VbE" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="116.5" id="oR4-ox-X01"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

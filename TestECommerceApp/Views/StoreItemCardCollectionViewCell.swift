@@ -17,15 +17,26 @@ class StoreItemCardCollectionViewCell: UICollectionViewCell {
         self.addSubview(itemCardBackground)
         self.addSubview(buyButton)
         
-        self.addSubview(itemNameLabelHeader)
-        self.addSubview(itemNameLabel)
+        self.addSubview(stackView)
         
-        self.addSubview(itemInStockLabelHeader)
-        self.addSubview(itemInStockLabel)
+        // Assambled view with stackView inside with labels for itemNameLabel
+        stackView.addArrangedSubview(itemNameLabelAssambledView)
+        itemNameLabelAssambledView.addSubview(itemNameLabelStackView)
+        itemNameLabelStackView.addArrangedSubview(itemNameLabelHeader)
+        itemNameLabelStackView.addArrangedSubview(itemNameLabel)
         
-        self.addSubview(itemPriceLabelHeader)
-        self.addSubview(itemPriceLabel)
+        // Assambled view with stackView inside with labels for itemStockLabel
+        stackView.addArrangedSubview(itemInStockLabelAssambledView)
+        itemInStockLabelAssambledView.addSubview(itemInStockLabelStackView)
+        itemInStockLabelStackView.addArrangedSubview(itemInStockLabelHeader)
+        itemInStockLabelStackView.addArrangedSubview(itemInStockLabel)
         
+        // Assambled view with stackView inside with labels for itemPriceLabel
+        stackView.addArrangedSubview(itemPriceLabelAssambledView)
+        itemPriceLabelAssambledView.addSubview(itemPriceLabelStackView)
+        itemPriceLabelStackView.addArrangedSubview(itemPriceLabelHeader)
+        itemPriceLabelStackView.addArrangedSubview(itemPriceLabel)
+
         let itemCardBackgroundConstraints = [
             itemCardBackground.topAnchor.constraint(equalTo: self.topAnchor, constant: 20),
             itemCardBackground.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40),
@@ -40,29 +51,30 @@ class StoreItemCardCollectionViewCell: UICollectionViewCell {
             buyButton.centerXAnchor.constraint(equalTo: itemCardBackground.centerXAnchor)]
         NSLayoutConstraint.activate(buyButtonConstraints)
         
-        let itemNameLabelConstraints = [
-            itemNameLabelHeader.topAnchor.constraint(equalTo: itemCardBackground.topAnchor, constant: 40),
-            itemNameLabelHeader.centerXAnchor.constraint(equalTo: itemCardBackground.centerXAnchor),
-            itemNameLabel.topAnchor.constraint(equalTo: itemNameLabelHeader.bottomAnchor, constant: 5),
-            itemNameLabel.leadingAnchor.constraint(equalTo: itemCardBackground.leadingAnchor, constant: 10),
-            itemNameLabel.trailingAnchor.constraint(equalTo: itemCardBackground.trailingAnchor, constant: -10)]
-        NSLayoutConstraint.activate(itemNameLabelConstraints)
+        let majorStackViewConstraints = [
+            stackView.topAnchor.constraint(equalTo: itemCardBackground.topAnchor, constant: 15),
+            stackView.bottomAnchor.constraint(equalTo: buyButton.topAnchor, constant: -15),
+            stackView.leadingAnchor.constraint(equalTo: itemCardBackground.leadingAnchor, constant: 5),
+            stackView.trailingAnchor.constraint(equalTo: itemCardBackground.trailingAnchor, constant: -5)]
+        NSLayoutConstraint.activate(majorStackViewConstraints)
         
-        let itemInStockLabelConstraints = [
-            itemInStockLabelHeader.topAnchor.constraint(equalTo: itemNameLabel.bottomAnchor, constant: 40),
-            itemInStockLabelHeader.centerXAnchor.constraint(equalTo: itemCardBackground.centerXAnchor),
-            itemInStockLabel.topAnchor.constraint(equalTo: itemInStockLabelHeader.bottomAnchor, constant: 5),
-            itemInStockLabel.leadingAnchor.constraint(equalTo: itemCardBackground.leadingAnchor, constant: 10),
-            itemInStockLabel.trailingAnchor.constraint(equalTo: itemCardBackground.trailingAnchor, constant: -10)]
-        NSLayoutConstraint.activate(itemInStockLabelConstraints)
+        let itemNameLabelStackViewConstraints = [
+            itemNameLabelStackView.leadingAnchor.constraint(equalTo: itemNameLabelAssambledView.leadingAnchor),
+            itemNameLabelStackView.trailingAnchor.constraint(equalTo: itemNameLabelAssambledView.trailingAnchor),
+            itemNameLabelStackView.centerYAnchor.constraint(equalTo: itemNameLabelAssambledView.centerYAnchor)]
+        NSLayoutConstraint.activate(itemNameLabelStackViewConstraints)
         
-        let itemPriceConstraints = [
-            itemPriceLabelHeader.topAnchor.constraint(equalTo: itemInStockLabel.bottomAnchor, constant: 40),
-            itemPriceLabelHeader.centerXAnchor.constraint(equalTo: itemCardBackground.centerXAnchor),
-            itemPriceLabel.topAnchor.constraint(equalTo: itemPriceLabelHeader.bottomAnchor, constant: 5),
-            itemPriceLabel.leadingAnchor.constraint(equalTo: itemCardBackground.leadingAnchor, constant: 10),
-            itemPriceLabel.trailingAnchor.constraint(equalTo: itemCardBackground.trailingAnchor, constant: -10)]
-        NSLayoutConstraint.activate(itemPriceConstraints)
+        let itemInStockLabelStackViewConstraints = [
+            itemInStockLabelStackView.leadingAnchor.constraint(equalTo: itemInStockLabelAssambledView.leadingAnchor),
+            itemInStockLabelStackView.trailingAnchor.constraint(equalTo: itemInStockLabelAssambledView.trailingAnchor),
+            itemInStockLabelStackView.centerYAnchor.constraint(equalTo: itemInStockLabelAssambledView.centerYAnchor)]
+        NSLayoutConstraint.activate(itemInStockLabelStackViewConstraints)
+        
+        let itemPriceLabelStackViewConstraints = [
+            itemPriceLabelStackView.leadingAnchor.constraint(equalTo: itemPriceLabelAssambledView.leadingAnchor),
+            itemPriceLabelStackView.trailingAnchor.constraint(equalTo: itemPriceLabelAssambledView.trailingAnchor),
+            itemPriceLabelStackView.centerYAnchor.constraint(equalTo: itemPriceLabelAssambledView.centerYAnchor)]
+        NSLayoutConstraint.activate(itemPriceLabelStackViewConstraints)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -86,8 +98,31 @@ class StoreItemCardCollectionViewCell: UICollectionViewCell {
         return itemCardBackground
     }()
     
-    // MARK: - Labels of Item's attributes
-    // Labels for Item Name
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.alignment = .center
+        stackView.spacing = 15
+        return stackView
+    }()
+    
+    // MARK: - StackViews of Item's attributes
+    // StackView with labels for Item Name
+    private let itemNameLabelAssambledView: UIView = {
+        return UIView()
+    }()
+    
+    private let itemNameLabelStackView: UIStackView = {
+        let itemNameLabelStackView = UIStackView()
+        itemNameLabelStackView.translatesAutoresizingMaskIntoConstraints = false
+        itemNameLabelStackView.axis = .vertical
+        itemNameLabelStackView.distribution = .fillEqually
+        itemNameLabelStackView.alignment = .center
+        return itemNameLabelStackView
+    }()
+    
     private let itemNameLabelHeader: UILabel = {
         let itemNameLabelHeader = UILabel()
         itemNameLabelHeader.translatesAutoresizingMaskIntoConstraints = false
@@ -102,13 +137,27 @@ class StoreItemCardCollectionViewCell: UICollectionViewCell {
         let itemNameLabel = UILabel()
         itemNameLabel.translatesAutoresizingMaskIntoConstraints = false
         itemNameLabel.textAlignment = .center
+        itemNameLabel.numberOfLines = 2
         itemNameLabel.font = .boldSystemFont(ofSize: 20)
         itemNameLabel.text = "Apple MacBook 15\" 2018 Core i7-7430, 8 GB, 512 GB SSD"
         itemNameLabel.numberOfLines = 0
         return itemNameLabel
     }()
     
-    // Labels for count of items in stock
+    // StackView with labels for items in stock
+    private let itemInStockLabelAssambledView: UIView = {
+        return UIView()
+    }()
+    
+    private let itemInStockLabelStackView: UIStackView = {
+        let itemInStockLabelStackView = UIStackView()
+        itemInStockLabelStackView.translatesAutoresizingMaskIntoConstraints = false
+        itemInStockLabelStackView.axis = .vertical
+        itemInStockLabelStackView.distribution = .fillEqually
+        itemInStockLabelStackView.alignment = .center
+        return itemInStockLabelStackView
+    }()
+    
     private let itemInStockLabelHeader: UILabel = {
         let itemNameLabelHeader = UILabel()
         itemNameLabelHeader.translatesAutoresizingMaskIntoConstraints = false
@@ -127,7 +176,20 @@ class StoreItemCardCollectionViewCell: UICollectionViewCell {
         return itemInStockLabel
     }()
     
-    // Labels for items price
+    // StackView with labels for items in stock
+    private let itemPriceLabelAssambledView: UIView = {
+        return UIView()
+    }()
+    
+    private let itemPriceLabelStackView: UIStackView = {
+        let itemPriceLabelStackView = UIStackView()
+        itemPriceLabelStackView.translatesAutoresizingMaskIntoConstraints = false
+        itemPriceLabelStackView.axis = .vertical
+        itemPriceLabelStackView.distribution = .fillEqually
+        itemPriceLabelStackView.alignment = .center
+        return itemPriceLabelStackView
+    }()
+    
     private let itemPriceLabelHeader: UILabel = {
         let itemPriceLabelHeader = UILabel()
         itemPriceLabelHeader.translatesAutoresizingMaskIntoConstraints = false

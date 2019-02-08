@@ -13,7 +13,7 @@ class StoreViewController: UIViewController {
     
     // MARK: - Properties
     let cellId = "Cell"
-    var indexPathOfCurrentItem: IndexPath!
+    var indexPath = IndexPath(item: 0, section: 0)
     var itemsInStore: [Item] = []
     var dataStoreAdapter: SaveData?
     
@@ -25,7 +25,6 @@ class StoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBackgroundImage()
         makeSwipeCollectionView()
         makeEmptyStoreLabel()
     }
@@ -41,7 +40,26 @@ class StoreViewController: UIViewController {
         // Load data from CoreData
         itemsInStore = adapter.loadItemsForStoreAnd(reload: swipeCollectionView)
         emptyStoreLabel.isHidden = itemsInStore.count > 0 ? true : false
+        
+        DispatchQueue.main.async {
+            self.swipeCollectionView.scrollToItem(at: self.indexPath, at: .centeredHorizontally, animated: true)
+        }
     }
     
+    override func viewWillLayoutSubviews() {
+        setupBackgroundImage()
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let numberOfItemCard = targetContentOffset.pointee.x / view.frame.width
+        indexPath = IndexPath(item: Int(numberOfItemCard), section: 0)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        swipeCollectionView.collectionViewLayout.invalidateLayout()
+        DispatchQueue.main.async {
+            self.swipeCollectionView.scrollToItem(at: self.indexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
 }
 

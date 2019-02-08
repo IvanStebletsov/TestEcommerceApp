@@ -66,31 +66,42 @@ extension StoreViewController {
     }
     
     func setupBackgroundImage() {
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        let backgroundImage = UIImageView()
+        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         backgroundImage.image = UIImage(named: "Background")
         backgroundImage.contentMode = .scaleAspectFill
-        view.insertSubview(backgroundImage, at: 0)
+
+        let gradientStatusBar = UIImageView()
+        gradientStatusBar.translatesAutoresizingMaskIntoConstraints = false
+        gradientStatusBar.image = UIImage(named: "GradientStatusBar")
         
-        let gradientTopView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height * 0.05))
-        view.insertSubview(gradientTopView, at: 1)
-        gradientTopView.setGradientBackground(ColorOne: .white, ColorTwo: UIColor(white: 1, alpha: 0))
+        view.insertSubview(backgroundImage, at: 0)
+        backgroundImage.addSubview(gradientStatusBar)
+        
+        let backgroundImageConstraints = [backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+                                          backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                                          backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                          backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                                          gradientStatusBar.topAnchor.constraint(equalTo: backgroundImage.topAnchor),
+                                          gradientStatusBar.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor),
+                                          gradientStatusBar.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor),
+                                          gradientStatusBar.widthAnchor.constraint(equalTo: backgroundImage.widthAnchor),
+                                          gradientStatusBar.heightAnchor.constraint(equalTo: backgroundImage.heightAnchor, multiplier: 0.05)]
+        NSLayoutConstraint.activate(backgroundImageConstraints)
     }
     
     // MARK: - Action for button
-    @objc func buyItem(sender: UIButton) {
-        let buyButtonPoint: CGPoint = sender.convert(sender.bounds.origin, to: swipeCollectionView) // Determine the coordinates of the user's touch point
-        indexPathOfCurrentItem = swipeCollectionView.indexPathForItem(at: buyButtonPoint) // Determine the indexPath by point of the cell in which clicked the "buyButton"
-        
-        let boughtItem = itemsInStore[indexPathOfCurrentItem.row]
+    @objc func buyItem(sender: UIButton) {        
+        let boughtItem = itemsInStore[indexPath.row]
         
         guard let count = Int(boughtItem.stock!) else { return }
 
         if count > 1 {
             boughtItem.stock = "\(count - 1)"
-            swipeCollectionView.reloadItems(at: [indexPathOfCurrentItem])
+            swipeCollectionView.reloadItems(at: [indexPath])
         } else {
             boughtItem.stock = "\(count - 1)"
-            itemsInStore.remove(at: indexPathOfCurrentItem.row)
+            itemsInStore.remove(at: indexPath.row)
             swipeCollectionView.reloadData()
         }
 

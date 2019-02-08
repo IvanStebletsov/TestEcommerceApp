@@ -18,6 +18,7 @@ extension BackEndViewController {
         stockTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         stockTableView.rowHeight = 100
         stockTableView.backgroundColor = .clear
+        stockTableView.showsVerticalScrollIndicator = false
         
         view.addSubview(stockTableView)
         
