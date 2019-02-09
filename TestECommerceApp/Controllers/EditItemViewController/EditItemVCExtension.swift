@@ -153,6 +153,10 @@ extension EditItemViewController {
                                                    for: UIControl.Event.editingChanged)
     }
     
+    func addTargetForStepper() {
+        itemStockTableViewCell.stockCountStepper.addTarget(self, action: #selector(enableTheSaveButton), for: .valueChanged)
+    }
+    
     @objc func enableTheSaveButton(target: Any) {
         navigationItem.title = itemNameTableViewCell.textField.text?.correctTheInputText()
         

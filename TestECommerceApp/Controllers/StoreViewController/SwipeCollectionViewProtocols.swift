@@ -19,9 +19,10 @@ extension StoreViewController: UICollectionViewDelegateFlowLayout, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! StoreItemCardCollectionViewCell
         let itemForCell = itemsInStore[indexPath.row]
         
-        cell.itemNameLabel.text = itemForCell.name
-        cell.itemInStockLabel.text = itemForCell.stock! + " шт."
-        cell.itemPriceLabel.text = itemForCell.price!.formattedWithSeparator + " ₽"
+        cell.buyButton.addTarget(self, action: #selector(buyItem(sender:)), for: .touchUpInside)
+        cell.nameLabel.text = itemForCell.name
+        cell.stockLabel.text = itemForCell.stock! + " шт."
+        cell.priceLabel.text = itemForCell.price!.formattedWithSeparator + " ₽"
 
         return cell
     }

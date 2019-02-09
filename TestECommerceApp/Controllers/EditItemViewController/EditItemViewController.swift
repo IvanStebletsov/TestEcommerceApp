@@ -33,6 +33,7 @@ class EditItemViewController: UIViewController, UITextFieldDelegate {
         makeDoneButtonInNumPad(textField: itemPriceTableViewCell.textField)
         makeDoneButtonInNumPad(textField: itemStockTableViewCell.textField)
         addTargetForTextFields()
+        addTargetForStepper()
         setupKeyboardObserver()
         hideKeyboardByTapAnywhere()
         

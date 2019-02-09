@@ -91,9 +91,9 @@ extension StoreViewController {
     }
     
     // MARK: - Action for button
-    @objc func buyItem(sender: UIButton) {        
+    @objc func buyItem(sender: UIButton) {
         let boughtItem = itemsInStore[indexPath.row]
-        
+
         guard let count = Int(boughtItem.stock!) else { return }
 
         if count > 1 {
@@ -106,7 +106,7 @@ extension StoreViewController {
         }
 
         dataStoreAdapter?.save()
-        
+
         let alert = UIAlertController(title: "Вы купили \(boughtItem.name ?? "классную вещь!")", message: "Поздравляем с приобретением!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ура!", style: .default, handler: nil))
         self.present(alert, animated: true, completion: { self.swipeCollectionView.reloadData() })

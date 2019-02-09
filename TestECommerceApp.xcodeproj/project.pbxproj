@@ -152,14 +152,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		26DD678E21F3204B000A9B42 /* AddEditItemViewController */ = {
+		26DD678E21F3204B000A9B42 /* EditItemViewController */ = {
 			isa = PBXGroup;
 			children = (
 				26DD678C21F3195F000A9B42 /* EditItemViewController.swift */,
 				26DD679921F35BE1000A9B42 /* FormTableViewProtocols.swift */,
 				26DD679621F35A27000A9B42 /* EditItemVCExtension.swift */,
 			);
-			path = AddEditItemViewController;
+			path = EditItemViewController;
 			sourceTree = "<group>";
 		};
 		26DD679821F35A86000A9B42 /* Controllers */ = {
@@ -167,7 +167,7 @@
 			children = (
 				26DD676C21EE6E44000A9B42 /* StoreViewController */,
 				26DD676F21EE71E8000A9B42 /* BackEndViewController */,
-				26DD678E21F3204B000A9B42 /* AddEditItemViewController */,
+				26DD678E21F3204B000A9B42 /* EditItemViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

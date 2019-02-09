@@ -11,11 +11,20 @@ import UIKit
 class ItemNameTableViewCell: UITableViewCell {
     
     // MARK: - Properties
-    let textField = UITextField()
+    var textField = UITextField()
     
     // MARK: - Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupTextField()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - UI configuration
+    func setupTextField() {
         self.addSubview(textField)
         
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -28,9 +37,5 @@ class ItemNameTableViewCell: UITableViewCell {
         
         textField.clearButtonMode = .whileEditing
         textField.placeholder = "Как называется товар?"
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
