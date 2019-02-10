@@ -62,10 +62,17 @@ extension BackEndViewController {
     }
     
     func setupBackgroundImage() {
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        let backgroundImage = UIImageView()
+        backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         backgroundImage.image = UIImage(named: "Background")
         backgroundImage.contentMode = .scaleAspectFill
         view.insertSubview(backgroundImage, at: 0)
+        
+        let backgroundImageConstraints = [backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
+                                          backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                                          backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                                          backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor)]
+        NSLayoutConstraint.activate(backgroundImageConstraints)
     }
     
     // MARK: - Action for button

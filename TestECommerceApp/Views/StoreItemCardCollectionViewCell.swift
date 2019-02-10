@@ -110,8 +110,7 @@ class StoreItemCardCollectionViewCell: UICollectionViewCell {
         
         let itemCardStackViewConstraints = [
             itemCardStackView.topAnchor.constraint(equalTo: itemCardBackgroundView.topAnchor, constant: 15),
-            itemCardStackView.bottomAnchor.constraint(lessThanOrEqualTo: buyButton.topAnchor, constant: -15),
-            itemCardStackView.heightAnchor.constraint(equalTo: itemCardBackgroundView.heightAnchor, multiplier: 0.8),
+            itemCardStackView.bottomAnchor.constraint(equalTo: buyButton.topAnchor, constant: -15),
             itemCardStackView.leadingAnchor.constraint(equalTo: itemCardBackgroundView.leadingAnchor, constant: 5),
             itemCardStackView.trailingAnchor.constraint(equalTo: itemCardBackgroundView.trailingAnchor, constant: -5)]
         NSLayoutConstraint.activate(itemCardStackViewConstraints)

@@ -70,7 +70,7 @@ extension StoreViewController {
         backgroundImage.translatesAutoresizingMaskIntoConstraints = false
         backgroundImage.image = UIImage(named: "Background")
         backgroundImage.contentMode = .scaleAspectFill
-
+        
         let gradientStatusBar = UIImageView()
         gradientStatusBar.translatesAutoresizingMaskIntoConstraints = false
         gradientStatusBar.image = UIImage(named: "GradientStatusBar")
@@ -81,21 +81,29 @@ extension StoreViewController {
         let backgroundImageConstraints = [backgroundImage.topAnchor.constraint(equalTo: view.topAnchor),
                                           backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor),
                                           backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                                          backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                                          gradientStatusBar.topAnchor.constraint(equalTo: backgroundImage.topAnchor),
-                                          gradientStatusBar.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor),
-                                          gradientStatusBar.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor),
-                                          gradientStatusBar.widthAnchor.constraint(equalTo: backgroundImage.widthAnchor),
-                                          gradientStatusBar.heightAnchor.constraint(equalTo: backgroundImage.heightAnchor, multiplier: 0.05)]
+                                          backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor)]
         NSLayoutConstraint.activate(backgroundImageConstraints)
+        
+        let gradientStatusBarConstraints = [
+            gradientStatusBar.topAnchor.constraint(equalTo: backgroundImage.topAnchor),
+            gradientStatusBar.leadingAnchor.constraint(equalTo: backgroundImage.leadingAnchor),
+            gradientStatusBar.trailingAnchor.constraint(equalTo: backgroundImage.trailingAnchor),
+            gradientStatusBar.widthAnchor.constraint(equalTo: backgroundImage.widthAnchor),
+            gradientStatusBar.heightAnchor.constraint(equalTo: backgroundImage.heightAnchor, multiplier: 0.05)]
+        NSLayoutConstraint.activate(gradientStatusBarConstraints)
     }
     
     // MARK: - Action for button
     @objc func buyItem(sender: UIButton) {
+        let buttonPoint = sender.convert(sender.bounds.origin, to: swipeCollectionView)
+        indexPath = swipeCollectionView.indexPathForItem(at: buttonPoint)!
+        
+        guard indexPath.row <= itemsInStore.count - 1 else { return }
+        
         let boughtItem = itemsInStore[indexPath.row]
-
+        
         guard let count = Int(boughtItem.stock!) else { return }
-
+        
         if count > 1 {
             boughtItem.stock = "\(count - 1)"
             swipeCollectionView.reloadItems(at: [indexPath])
@@ -104,12 +112,14 @@ extension StoreViewController {
             itemsInStore.remove(at: indexPath.row)
             swipeCollectionView.reloadData()
         }
-
+        
         dataStoreAdapter?.save()
-
+        
         let alert = UIAlertController(title: "Вы купили \(boughtItem.name ?? "классную вещь!")", message: "Поздравляем с приобретением!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ура!", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: { self.swipeCollectionView.reloadData() })
+        self.present(alert, animated: true, completion: {
+            self.swipeCollectionView.reloadData()
+            self.emptyStoreLabel.isHidden = self.itemsInStore.count > 0 ? true : false
+        })
     }
-
 }

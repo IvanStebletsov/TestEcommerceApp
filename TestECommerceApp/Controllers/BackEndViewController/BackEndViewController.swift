@@ -24,7 +24,6 @@ class BackEndViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupBackgroundImage()
         makeStockTableView()
         makeEmptyStoreLabel()
     }
@@ -38,6 +37,10 @@ class BackEndViewController: UIViewController {
         
         navigationItem.title = "Колличесвто позиций: \(itemsInStock.count)"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItem))
+    }
+    
+    override func viewWillLayoutSubviews() {
+        setupBackgroundImage()
     }
 
 }

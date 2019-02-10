@@ -41,7 +41,7 @@ class StoreViewController: UIViewController {
         itemsInStore = adapter.loadItemsForStoreAnd(reload: swipeCollectionView)
         emptyStoreLabel.isHidden = itemsInStore.count > 0 ? true : false
         
-        guard !itemsInStore.isEmpty else { return }
+        guard !itemsInStore.isEmpty, indexPath.row <= itemsInStore.count - 1 else { return }
         DispatchQueue.main.async {
             self.swipeCollectionView.scrollToItem(at: self.indexPath, at: .centeredHorizontally, animated: true)
         }
@@ -58,6 +58,7 @@ class StoreViewController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         swipeCollectionView.collectionViewLayout.invalidateLayout()
+        guard !itemsInStore.isEmpty, indexPath.row <= itemsInStore.count - 1 else { return }
         DispatchQueue.main.async {
             self.swipeCollectionView.scrollToItem(at: self.indexPath, at: .centeredHorizontally, animated: true)
         }
