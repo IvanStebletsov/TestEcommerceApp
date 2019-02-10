@@ -41,6 +41,7 @@ class StoreViewController: UIViewController {
         itemsInStore = adapter.loadItemsForStoreAnd(reload: swipeCollectionView)
         emptyStoreLabel.isHidden = itemsInStore.count > 0 ? true : false
         
+        guard !itemsInStore.isEmpty else { return }
         DispatchQueue.main.async {
             self.swipeCollectionView.scrollToItem(at: self.indexPath, at: .centeredHorizontally, animated: true)
         }
