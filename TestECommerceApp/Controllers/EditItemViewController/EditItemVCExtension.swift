@@ -214,7 +214,7 @@ extension EditItemViewController {
     @objc func saveData() {
         switch selectedItem {
         case nil:
-            dataStoreAdapter?.saveNew(name: itemNameTableViewCell.textField.text!,
+            dataStorage?.saveNew(name: itemNameTableViewCell.textField.text!,
                                       price: itemPriceTableViewCell.textField.text!,
                                       stock: itemStockTableViewCell.textField.text!)
             popViewController()
@@ -223,7 +223,7 @@ extension EditItemViewController {
             selectedItem?.price = itemPriceTableViewCell.textField.text?.correctTheInputNumber()
             selectedItem?.stock = itemStockTableViewCell.textField.text?.correctTheInputNumber()
             
-            dataStoreAdapter?.save()
+            dataStorage?.save()
             popViewController()
         }
     }

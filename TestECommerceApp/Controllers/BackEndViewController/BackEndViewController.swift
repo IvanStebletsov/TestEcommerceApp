@@ -18,7 +18,7 @@ class BackEndViewController: UIViewController {
     var stockTableView: UITableView!
     var emptyStoreLabel: UIView!
     var itemsInStock: [Item] = []
-    var dataStoreAdapter: SaveData?
+    var dataStorage: DataStorage?
     
     // MARK: - Life cicle methods
     override func viewDidLoad() {
@@ -32,8 +32,13 @@ class BackEndViewController: UIViewController {
         super.viewWillAppear(animated)
        
         // Load data from CoreData
-        guard let adapter = dataStoreAdapter else { return }
-        itemsInStock = adapter.loadItemsForBackEndAnd(reload: stockTableView)
+        guard let dataStorage = dataStorage else { return }
+        
+        itemsInStock = dataStorage.loadItemsForBackEnd()
+        
+        DispatchQueue.main.async { [unowned self] in
+            self.stockTableView.reloadData()
+        }
         
         navigationItem.title = "Колличесвто позиций: \(itemsInStock.count)"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewItem))

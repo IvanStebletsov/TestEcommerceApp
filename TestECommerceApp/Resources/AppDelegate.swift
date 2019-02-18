@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Properties
     var window: UIWindow?
-    private let coreDataManager = CoreDataManager(modelName: "TestECommerceApp")
-    private let dataStoreAdapter = DataStoreAdapter()
+    private let coreDataManager = CoreDataStorage(modelName: "TestECommerceApp")
+    private let dataSaver = DataSaver()
     
     // MARK: - Application lifecicle methods
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -32,8 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let appScreenControllers = [storeViewController, backEndViewController]
         
         // Pass an CoreDataStack instance to the initial ViewController (StoreViewController)
-        dataStoreAdapter.coreDataManager = coreDataManager
-        storeViewController.dataStoreAdapter = dataStoreAdapter
+        dataSaver.coreDataManager = coreDataManager
+        storeViewController.dataStorage = dataSaver
         
         let tabBarViewController = UITabBarController()
         tabBarViewController.tabBar.tintColor = UIColor(r: 70, g: 155, b: 252, alpha: 1)

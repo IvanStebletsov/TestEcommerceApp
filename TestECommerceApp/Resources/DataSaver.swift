@@ -9,18 +9,18 @@
 import UIKit
 import CoreData
 
-protocol SaveData: AnyObject {
+protocol DataStorage: AnyObject {
     func save()
     func saveNew(name: String, price: String, stock: String)
     func remove(_ item: Item)
-    func loadItemsForBackEndAnd(reload tableView: UITableView?) -> [Item]
-    func loadItemsForStoreAnd(reload collectionView: UICollectionView?) -> [Item]
+    func loadItemsForBackEnd() -> [Item]
+    func loadItemsForStore() -> [Item]
 }
 
-class DataStoreAdapter: SaveData {
+class DataSaver: DataStorage {
     
     // MARK: - Properties
-    var coreDataManager: CoreDataManager?
+    var coreDataManager: CoreDataStorage?
     
     // MARK: - DataStoreAdapterDelegate methods
     func save() {
@@ -43,7 +43,7 @@ class DataStoreAdapter: SaveData {
         coreDataManager.saveChanges()
     }
     
-    func loadItemsForBackEndAnd(reload tableView: UITableView?) -> [Item] {
+    func loadItemsForBackEnd() -> [Item] {
         var itemsInStock: [Item] = []
         guard let coreDataManager = coreDataManager else { return [] }
         
@@ -54,15 +54,10 @@ class DataStoreAdapter: SaveData {
         } catch let error as NSError {
             print("ERROR: \(error): \(error.userInfo)")
         }
-        
-        guard let tableView = tableView else { return itemsInStock }
-        DispatchQueue.main.async {
-            tableView.reloadData()
-        }
         return itemsInStock
     }
     
-    func loadItemsForStoreAnd(reload collectionView: UICollectionView?) -> [Item] {
+    func loadItemsForStore() -> [Item] {
         var itemsInStore: [Item] = []
         guard let coreDataManager = coreDataManager else { return [] }
         
@@ -73,11 +68,6 @@ class DataStoreAdapter: SaveData {
             itemsInStore = try coreDataManager.mainManagedObjectContext.fetch(fetchReques)
         } catch let error as NSError {
             print("ERROR: \(error): \(error.userInfo)")
-        }
-        
-        guard let collectionView = collectionView else { return itemsInStore }
-        DispatchQueue.main.async {
-            collectionView.reloadData()
         }
         return itemsInStore
     }

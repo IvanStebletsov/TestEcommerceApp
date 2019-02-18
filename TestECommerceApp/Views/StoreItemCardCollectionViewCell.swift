@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol buyItemTapped {
+    func buyItem(sender: UIButton)
+}
+
 class StoreItemCardCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     let itemCardBackgroundBorderColor = UIColor(r: 70, g: 155, b: 252, alpha: 1)
     let buyButtonColor = UIColor(r: 70, g: 155, b: 252, alpha: 1)
+    var buyButtonTappedDelegate: buyItemTapped?
     
     // MARK: - UI elements
     private var itemCardBackgroundView: UIView!
@@ -58,6 +63,8 @@ class StoreItemCardCollectionViewCell: UICollectionViewCell {
         itemCardBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         itemCardBackgroundView.backgroundColor = .white
         itemCardBackgroundView.layer.cornerRadius = 25
+        itemCardBackgroundView.layer.shouldRasterize = true
+        itemCardBackgroundView.layer.rasterizationScale = UIScreen.main.nativeScale
         itemCardBackgroundView.layer.borderColor = itemCardBackgroundBorderColor.cgColor
         itemCardBackgroundView.layer.borderWidth = 1.5
         itemCardBackgroundView.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -83,10 +90,14 @@ class StoreItemCardCollectionViewCell: UICollectionViewCell {
         buyButton.setTitleColor(#colorLiteral(red: 0.6049375534, green: 0.7886608243, blue: 0.9924311042, alpha: 1), for: .highlighted)
         buyButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 25)
         buyButton.layer.cornerRadius = 15
+        buyButton.layer.shouldRasterize = true
+        buyButton.layer.rasterizationScale = UIScreen.main.nativeScale
         buyButton.layer.shadowColor = buyButtonColor.cgColor
         buyButton.layer.shadowOpacity = 0.5
         buyButton.layer.shadowRadius = 10
         buyButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
+        buyButton.addTarget(self, action: #selector(onBuyButton(sender:)), for: .touchUpInside)
         
         self.addSubview(buyButton)
         
@@ -228,5 +239,9 @@ class StoreItemCardCollectionViewCell: UICollectionViewCell {
         priceLabel.font = .boldSystemFont(ofSize: 20)
         
         priceStackView.addArrangedSubview(priceLabel)
+    }
+    
+    @objc func onBuyButton(sender: UIButton) {
+        buyButtonTappedDelegate?.buyItem(sender: sender)
     }
 }

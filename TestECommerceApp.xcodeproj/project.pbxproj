@@ -10,10 +10,9 @@
 		26469EA12203728100FB5378 /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26469E9F2203728100FB5378 /* Item+CoreDataClass.swift */; };
 		26469EA22203728100FB5378 /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26469EA02203728100FB5378 /* Item+CoreDataProperties.swift */; };
 		2646A86122099487003304AC /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646A86022099487003304AC /* UIColorExtensions.swift */; };
-		2646A86B220B0072003304AC /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646A86A220B0072003304AC /* CoreDataManager.swift */; };
+		2646A86B220B0072003304AC /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646A86A220B0072003304AC /* CoreDataStorage.swift */; };
 		2646A86E220C154A003304AC /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2646A86D220C154A003304AC /* UIViewExtensions.swift */; };
 		2646A876220C3F8B003304AC /* data.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2646A875220C3F8B003304AC /* data.csv */; };
-		2646A87E220C84B7003304AC /* LauchScreenAppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2646A87D220C84B7003304AC /* LauchScreenAppIcon.png */; };
 		26DD675821EE6881000A9B42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DD675721EE6881000A9B42 /* AppDelegate.swift */; };
 		26DD675A21EE6881000A9B42 /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DD675921EE6881000A9B42 /* StoreViewController.swift */; };
 		26DD676021EE6881000A9B42 /* TestECommerceApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26DD675E21EE6881000A9B42 /* TestECommerceApp.xcdatamodeld */; };
@@ -29,7 +28,7 @@
 		26DD679D21F36BC4000A9B42 /* ItemNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DD679C21F36BC4000A9B42 /* ItemNameTableViewCell.swift */; };
 		26DD679F21F3E18C000A9B42 /* ItemPriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DD679E21F3E18C000A9B42 /* ItemPriceTableViewCell.swift */; };
 		26DD67A121F3E4C1000A9B42 /* ItemStockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DD67A021F3E4C1000A9B42 /* ItemStockTableViewCell.swift */; };
-		26DD67A521F4AEE6000A9B42 /* DataStoreAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DD67A421F4AEE6000A9B42 /* DataStoreAdapter.swift */; };
+		26DD67A521F4AEE6000A9B42 /* DataSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26DD67A421F4AEE6000A9B42 /* DataSaver.swift */; };
 		26FB4C9321FCA2A800A40691 /* StoreVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FB4C9221FCA2A800A40691 /* StoreVCExtension.swift */; };
 		26FB4C9521FCB7E000A40691 /* SwipeCollectionViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FB4C9421FCB7E000A40691 /* SwipeCollectionViewProtocols.swift */; };
 		26FB4C9721FCD24C00A40691 /* StoreItemCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FB4C9621FCD24C00A40691 /* StoreItemCardCollectionViewCell.swift */; };
@@ -39,10 +38,9 @@
 		26469E9F2203728100FB5378 /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		26469EA02203728100FB5378 /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2646A86022099487003304AC /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
-		2646A86A220B0072003304AC /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		2646A86A220B0072003304AC /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		2646A86D220C154A003304AC /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		2646A875220C3F8B003304AC /* data.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data.csv; sourceTree = "<group>"; };
-		2646A87D220C84B7003304AC /* LauchScreenAppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LauchScreenAppIcon.png; sourceTree = "<group>"; };
 		26DD675421EE6881000A9B42 /* TestECommerceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestECommerceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DD675721EE6881000A9B42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26DD675921EE6881000A9B42 /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +58,7 @@
 		26DD679C21F36BC4000A9B42 /* ItemNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemNameTableViewCell.swift; sourceTree = "<group>"; };
 		26DD679E21F3E18C000A9B42 /* ItemPriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPriceTableViewCell.swift; sourceTree = "<group>"; };
 		26DD67A021F3E4C1000A9B42 /* ItemStockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStockTableViewCell.swift; sourceTree = "<group>"; };
-		26DD67A421F4AEE6000A9B42 /* DataStoreAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreAdapter.swift; sourceTree = "<group>"; };
+		26DD67A421F4AEE6000A9B42 /* DataSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSaver.swift; sourceTree = "<group>"; };
 		26FB4C9221FCA2A800A40691 /* StoreVCExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreVCExtension.swift; sourceTree = "<group>"; };
 		26FB4C9421FCB7E000A40691 /* SwipeCollectionViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeCollectionViewProtocols.swift; sourceTree = "<group>"; };
 		26FB4C9621FCD24C00A40691 /* StoreItemCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItemCardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -77,6 +75,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2639464D221B3C4C000CB3D1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				26DD675721EE6881000A9B42 /* AppDelegate.swift */,
+				2646A86A220B0072003304AC /* CoreDataStorage.swift */,
+				26DD67A421F4AEE6000A9B42 /* DataSaver.swift */,
+				26DD676321EE6884000A9B42 /* LaunchScreen.storyboard */,
+				2646A875220C3F8B003304AC /* data.csv */,
+				26DD675E21EE6881000A9B42 /* TestECommerceApp.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		2646A85F2209945F003304AC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,19 +117,13 @@
 		26DD675621EE6881000A9B42 /* TestECommerceApp */ = {
 			isa = PBXGroup;
 			children = (
-				26DD675721EE6881000A9B42 /* AppDelegate.swift */,
+				2639464D221B3C4C000CB3D1 /* Resources */,
 				26DD677621EFB5BA000A9B42 /* Model */,
 				26DD679B21F36B91000A9B42 /* Views */,
 				26DD679821F35A86000A9B42 /* Controllers */,
 				2646A85F2209945F003304AC /* Helpers */,
-				2646A86A220B0072003304AC /* CoreDataManager.swift */,
-				26DD67A421F4AEE6000A9B42 /* DataStoreAdapter.swift */,
-				2646A875220C3F8B003304AC /* data.csv */,
 				26DD676121EE6884000A9B42 /* Assets.xcassets */,
-				26DD676321EE6884000A9B42 /* LaunchScreen.storyboard */,
-				2646A87D220C84B7003304AC /* LauchScreenAppIcon.png */,
 				26DD676621EE6884000A9B42 /* Info.plist */,
-				26DD675E21EE6881000A9B42 /* TestECommerceApp.xcdatamodeld */,
 			);
 			path = TestECommerceApp;
 			sourceTree = "<group>";
@@ -243,7 +248,6 @@
 			files = (
 				26DD676521EE6884000A9B42 /* LaunchScreen.storyboard in Resources */,
 				26DD676221EE6884000A9B42 /* Assets.xcassets in Resources */,
-				2646A87E220C84B7003304AC /* LauchScreenAppIcon.png in Resources */,
 				2646A876220C3F8B003304AC /* data.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,9 +268,9 @@
 				26DD675A21EE6881000A9B42 /* StoreViewController.swift in Sources */,
 				26DD677521EE7D67000A9B42 /* StockTableViewProtocols.swift in Sources */,
 				26DD676E21EE6E75000A9B42 /* BackEndViewController.swift in Sources */,
-				26DD67A521F4AEE6000A9B42 /* DataStoreAdapter.swift in Sources */,
+				26DD67A521F4AEE6000A9B42 /* DataSaver.swift in Sources */,
 				26DD679D21F36BC4000A9B42 /* ItemNameTableViewCell.swift in Sources */,
-				2646A86B220B0072003304AC /* CoreDataManager.swift in Sources */,
+				2646A86B220B0072003304AC /* CoreDataStorage.swift in Sources */,
 				26DD678D21F3195F000A9B42 /* EditItemViewController.swift in Sources */,
 				26DD676021EE6881000A9B42 /* TestECommerceApp.xcdatamodeld in Sources */,
 				26DD679721F35A27000A9B42 /* EditItemVCExtension.swift in Sources */,

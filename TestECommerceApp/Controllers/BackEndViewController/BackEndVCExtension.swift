@@ -80,7 +80,7 @@ extension BackEndViewController {
         let editItemViewController = EditItemViewController()
         
         // Pass an CoreDataStack instance to the EditItemViewController and wipe (nil) selectedItem and indexPath of selected item
-        editItemViewController.dataStoreAdapter = dataStoreAdapter
+        editItemViewController.dataStorage = dataStorage
         editItemViewController.selectedItem = nil
         editItemViewController.indexPath = nil
         self.navigationController?.pushViewController(editItemViewController, animated: true)

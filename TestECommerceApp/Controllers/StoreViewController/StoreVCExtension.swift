@@ -92,7 +92,9 @@ extension StoreViewController {
             gradientStatusBar.heightAnchor.constraint(equalTo: backgroundImage.heightAnchor, multiplier: 0.05)]
         NSLayoutConstraint.activate(gradientStatusBarConstraints)
     }
-    
+}
+
+extension StoreViewController: buyItemTapped {
     // MARK: - Action for button
     @objc func buyItem(sender: UIButton) {
         let buttonPoint = sender.convert(sender.bounds.origin, to: swipeCollectionView)
@@ -113,7 +115,7 @@ extension StoreViewController {
             swipeCollectionView.reloadData()
         }
         
-        dataStoreAdapter?.save()
+        dataStorage?.save()
         
         let alert = UIAlertController(title: "Вы купили \(boughtItem.name ?? "классную вещь!")", message: "Поздравляем с приобретением!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ура!", style: .default, handler: nil))

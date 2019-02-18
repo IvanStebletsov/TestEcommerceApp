@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+class CoreDataStorage {
     
     // MARK: - Properties
     private let modelName: String

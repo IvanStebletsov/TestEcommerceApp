@@ -15,7 +15,7 @@ class StoreViewController: UIViewController {
     let cellId = "Cell"
     var indexPath = IndexPath(item: 0, section: 0)
     var itemsInStore: [Item] = []
-    var dataStoreAdapter: SaveData?
+    var dataStorage: DataStorage?
     
     // MARK: - UI elements
     var swipeCollectionView: UICollectionView!
@@ -33,12 +33,17 @@ class StoreViewController: UIViewController {
         super.viewWillAppear(animated)
         
         // Pass an CoreDataStack instance to the BackEndViewController
-        guard let adapter = dataStoreAdapter else { return }
+        guard let dataStorage = dataStorage else { return }
         guard let backEndVC = tabBarController?.viewControllers?[1].children.first as? BackEndViewController else { return }
-        backEndVC.dataStoreAdapter = adapter
+        backEndVC.dataStorage = dataStorage
         
         // Load data from CoreData
-        itemsInStore = adapter.loadItemsForStoreAnd(reload: swipeCollectionView)
+        itemsInStore = dataStorage.loadItemsForStore()
+        
+        DispatchQueue.main.async { [unowned self] in
+            self.swipeCollectionView.reloadData()
+        }
+        
         emptyStoreLabel.isHidden = itemsInStore.count > 0 ? true : false
         
         guard !itemsInStore.isEmpty, indexPath.row <= itemsInStore.count - 1 else { return }

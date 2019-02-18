@@ -15,7 +15,7 @@ class EditItemViewController: UIViewController, UITextFieldDelegate {
     let itemNameTableViewCell = ItemNameTableViewCell()
     let itemPriceTableViewCell = ItemPriceTableViewCell()
     let itemStockTableViewCell = ItemStockTableViewCell()
-    var dataStoreAdapter: SaveData?
+    var dataStorage: DataStorage?
     var selectedItem: Item?
     var indexPath: IndexPath?
     var activeField: UITextField?

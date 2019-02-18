@@ -21,7 +21,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="6gb-Pc-TJA">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauchScreenAppIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="eAT-jc-ba3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LauchScreenAppIcon" translatesAutoresizingMaskIntoConstraints="NO" id="eAT-jc-ba3">
                                 <rect key="frame" x="77.5" y="197" width="220" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="220" id="Azs-Nu-ZTC"/>
@@ -57,6 +57,6 @@
     </scenes>
     <resources>
         <image name="Background" width="591.84002685546875" height="517"/>
-        <image name="LauchScreenAppIcon.png" width="881" height="881"/>
+        <image name="LauchScreenAppIcon" width="422.8800048828125" height="422.8800048828125"/>
     </resources>
 </document>

@@ -37,7 +37,7 @@ extension BackEndViewController: UITableViewDataSource, UITableViewDelegate {
         let editItemViewController = EditItemViewController()
         
         // Pass an CoreDataStack instance, selectedItem and indexPath of selected item to the EditItemViewController
-        editItemViewController.dataStoreAdapter = dataStoreAdapter
+        editItemViewController.dataStorage = dataStorage
         editItemViewController.selectedItem = itemsInStock[indexPath.row]
         editItemViewController.indexPath = indexPath
         self.navigationController?.pushViewController(editItemViewController, animated: true)
@@ -48,7 +48,7 @@ extension BackEndViewController: UITableViewDataSource, UITableViewDelegate {
         
         if editingStyle == .delete {
             itemsInStock.remove(at: indexPath.row)
-            dataStoreAdapter?.remove(itemForDelete)
+            dataStorage?.remove(itemForDelete)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
             navigationItem.title = "Колличесвто позиций: \(itemsInStock.count)"
         }
